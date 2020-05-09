@@ -1,63 +1,63 @@
 /**********************************
-×÷Õß£ºÍõ³É±ò
-ÈÕÆÚ£º2020-05-08
-Ñ§ºÅ£º045435
-°à¼¶£º×ÊÔ´ĞÅÏ¢¹¤³ÌÏµ
+ä½œè€…ï¼šç‹æˆå½¬
+æ—¥æœŸï¼š2020-05-08
+å­¦å·ï¼š045435
+ç­çº§ï¼šèµ„æºä¿¡æ¯å·¥ç¨‹ç³»
 Email:wangchb@cug.edu.cn
 ***********************************/
 
 
 use CUGer_student
-select Sname,Sage,Sno   --Ñ¡ÔñÑ§ÉúĞÕÃû£¬ÄêÁäºÍÑ§ºÅ
+select Sname,Sage,Sno   --é€‰æ‹©å­¦ç”Ÿå§“åï¼Œå¹´é¾„å’Œå­¦å·
 from Student
 
 
---²éÑ¯StudentÖĞËùÓĞĞÅÏ¢
+--æŸ¥è¯¢Studentä¸­æ‰€æœ‰ä¿¡æ¯
 select * from Student 
 
---²éÑ¯È«ÌåÑ§ÉúÇé¿ö£¬²éÑ¯½á¹û°´ËùÔÚÏµµÄÏµÃû(Sdpet)ÉıĞòÅÅÁĞ£¬Í¬Ò»ÏµÖĞµÄÑ§Éú°´ÄêÁä(Sage)½µĞòÅÅÁĞ
+--æŸ¥è¯¢å…¨ä½“å­¦ç”Ÿæƒ…å†µï¼ŒæŸ¥è¯¢ç»“æœæŒ‰æ‰€åœ¨ç³»çš„ç³»å(Sdpet)å‡åºæ’åˆ—ï¼ŒåŒä¸€ç³»ä¸­çš„å­¦ç”ŸæŒ‰å¹´é¾„(Sage)é™åºæ’åˆ—
 select  * from Student
      order by Sdept asc, Sage DESC
 
---¼ÆËãÑ¡ĞŞC01ºÅ¿Î³ÌµÄÑ§ÉúÆ½¾ù³É¼¨
+--è®¡ç®—é€‰ä¿®C01å·è¯¾ç¨‹çš„å­¦ç”Ÿå¹³å‡æˆç»©
 select  avg(Grade) from  Reports
    where  Cno='C01'
 
 
---²éÑ¯Ñ¡ĞŞÁË3ÃÅ»ò3ÃÅÒÔÉÏ¿Î³ÌµÄÑ§ÉúÑ§ºÅ(Sno)
+--æŸ¥è¯¢é€‰ä¿®äº†3é—¨æˆ–3é—¨ä»¥ä¸Šè¯¾ç¨‹çš„å­¦ç”Ÿå­¦å·(Sno)
 select  Sno  from  Reports
   group by Sno
  having count(Cno)>=3
 
---²éÑ¯Ã¿¸öÑ§Éú¼°ÆäÑ¡ĞŞ¿Î³ÌµÄÇé¿ö
+--æŸ¥è¯¢æ¯ä¸ªå­¦ç”ŸåŠå…¶é€‰ä¿®è¯¾ç¨‹çš„æƒ…å†µ
 SELECT  Student.*,  Reports.*
        FROM  Student, Reports
        WHERE  Student.Sno = Reports.Sno
 
---²éÑ¯Ñ¡ĞŞÁË±àºÅÎª¡°C02¡±µÄ¿Î³ÌµÄÑ§ÉúĞÕÃû(Sname)ºÍËùÔÚÏµ(Sdept)
+--æŸ¥è¯¢é€‰ä¿®äº†ç¼–å·ä¸ºâ€œC02â€çš„è¯¾ç¨‹çš„å­¦ç”Ÿå§“å(Sname)å’Œæ‰€åœ¨ç³»(Sdept)
 SELECT  Sname, Sdept
     FROM  Student
     WHERE Sno 
     IN (SELECT Sno FROM Reports 
            WHERE Cno='C02')
 
---²éÑ¯Óë¡°ÀîÎ°¡±ÔÚÍ¬Ò»¸öÏµÑ§Ï°µÄÑ§ÉúÑ§ºÅ(Sno)¡¢ĞÕÃû(Sname)ºÍÏµÃû(Sdept)
+--æŸ¥è¯¢ä¸â€œæä¼Ÿâ€åœ¨åŒä¸€ä¸ªç³»å­¦ä¹ çš„å­¦ç”Ÿå­¦å·(Sno)ã€å§“å(Sname)å’Œç³»å(Sdept)
 SELECT  Sno, Sname, Sdept
     FROM  Student
     WHERE  Sdept 
     IN (SELECT Sdept FROM Student
-            WHERE Sname='ÀîÎ°')
+            WHERE Sname='æä¼Ÿ')
 
 /**
-ÉèÓĞÒ»¸ö¹ØÏµHistory_Student£¬Æä¹ØÏµÄ£Ê½ÓëStudentsÍêÈ«Ò»Ñù£¬
-ÊÔ½«¹ØÏµStudentsÖĞµÄËùÓĞÔª×é²åÈëµ½¹ØÏµHistory_StudentÖĞ
+è®¾æœ‰ä¸€ä¸ªå…³ç³»History_Studentï¼Œå…¶å…³ç³»æ¨¡å¼ä¸Studentså®Œå…¨ä¸€æ ·ï¼Œ
+è¯•å°†å…³ç³»Studentsä¸­çš„æ‰€æœ‰å…ƒç»„æ’å…¥åˆ°å…³ç³»History_Studentä¸­
 **/
-CREATE Table History_Student		--´´½¨History_Student±í¸ñ
-	(Sno CHAR(5) PRIMARY KEY,	--Ñ§ºÅ		
-	Sname CHAR(20) NOT NULL,	--Ñ§ÉúĞÕÃû	
-	Ssex CHAR(2),		--ĞÔ±ğ
-	Sage INT,		--ÄêÁä
-	Sdept CHAR(15),		--ÔºÏµ
+CREATE Table History_Student		--åˆ›å»ºHistory_Studentè¡¨æ ¼
+	(Sno CHAR(5) PRIMARY KEY,	--å­¦å·		
+	Sname CHAR(20) NOT NULL,	--å­¦ç”Ÿå§“å	
+	Ssex CHAR(2),		--æ€§åˆ«
+	Sage INT,		--å¹´é¾„
+	Sdept CHAR(15),		--é™¢ç³»
 	Sentrancedat Datetime 
 	)
 
@@ -65,33 +65,33 @@ INSERT  INTO  History_Student
                      SELECT  *  FROM  Student
 
 
--- ½«Ñ§ºÅÎª¡°S03¡±µÄÑ§ÉúÄêÁä¸ÄÎª22Ëê
+-- å°†å­¦å·ä¸ºâ€œS03â€çš„å­¦ç”Ÿå¹´é¾„æ”¹ä¸º22å²
 UPDATE  Student
 SET Sage=22
 WHERE  Sno='S03'
 
---½«ËùÓĞÑ§ÉúÄêÁä¼Ó1
+--å°†æ‰€æœ‰å­¦ç”Ÿå¹´é¾„åŠ 1
 UPDATE  Student
 SET  Sage=1+Sage
 
---´Ó³É¼¨µ¥ÖĞÉ¾³ıÑ§ºÅÎªS02£¬¿Î³ÌÎªC03µÄÔª×é
+--ä»æˆç»©å•ä¸­åˆ é™¤å­¦å·ä¸ºS02ï¼Œè¯¾ç¨‹ä¸ºC03çš„å…ƒç»„
 DELETE  FROM  Reports
             WHERE  Sno='S02' AND Cno='C03'
 
 /**
-½¨Á¢ÊıÑ§ÏµÑ§ÉúµÄÊÓÍ¼£¬ÇÒÔÚ½øĞĞĞŞ¸ÄºÍ²åÈë²Ù×÷Ê±
-ÈÔĞè±£Ö¤¸ÃÊÓÍ¼Ö»¶ÔÊıÑ§ÏµµÄÑ§Éú£¬ÊÓÍ¼µÄÊôĞÔÃûÎª
-Sno£¬Sname£¬Sage£¬Sdept 
+å»ºç«‹æ•°å­¦ç³»å­¦ç”Ÿçš„è§†å›¾ï¼Œä¸”åœ¨è¿›è¡Œä¿®æ”¹å’Œæ’å…¥æ“ä½œæ—¶
+ä»éœ€ä¿è¯è¯¥è§†å›¾åªå¯¹æ•°å­¦ç³»çš„å­¦ç”Ÿï¼Œè§†å›¾çš„å±æ€§åä¸º
+Snoï¼ŒSnameï¼ŒSageï¼ŒSdept 
 **/
 CREATE  VIEW  C_Student  
  AS
  SELECT  Sno, Sname, Sage, Sdept 
  FROM  Student
- WHERE  Sdept='ÊıÑ§'
+ WHERE  Sdept='æ•°å­¦'
  WITH CHECK OPTION
 
 /**
-½¨Á¢Ñ§ÉúµÄÑ§ºÅ(Sno)¡¢ĞÕÃû(Sname)¡¢Ñ¡ĞŞ¿Î³ÌÃû(Cname)¼°³É¼¨(Grade)µÄÊÓÍ¼¡£
+å»ºç«‹å­¦ç”Ÿçš„å­¦å·(Sno)ã€å§“å(Sname)ã€é€‰ä¿®è¯¾ç¨‹å(Cname)åŠæˆç»©(Grade)çš„è§†å›¾ã€‚
 **/
  CREATE VIEW  Student_CR  
 	AS
@@ -99,10 +99,10 @@ CREATE  VIEW  C_Student
 	FROM  Student, Reports, Course
 	WHERE Student.Sno= Reports.Sno AND Reports.Cno=Course.Cno
 
---É¾³ıÊÓÍ¼   
+--åˆ é™¤è§†å›¾   
 DROP VIEW  C_Student
 
---ÔÚÊÓÍ¼C_StudentÖĞÕÒ³öÄêÁä(Sage)Ğ¡ÓÚ20ËêµÄÑ§ÉúĞÕÃû(Sname)ºÍÄêÁä(Sage)¡£
+--åœ¨è§†å›¾C_Studentä¸­æ‰¾å‡ºå¹´é¾„(Sage)å°äº20å²çš„å­¦ç”Ÿå§“å(Sname)å’Œå¹´é¾„(Sage)ã€‚
 SELECT  Sname, Sage  FROM  C_Student
 	WHERE  Sage<20
 

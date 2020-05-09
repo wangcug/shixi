@@ -1,33 +1,33 @@
 /**********************************
-×÷Õß£ºÍõ³É±ò
-ÈÕÆÚ£º2020-05-08
-Ñ§ºÅ£º045435
-°à¼¶£º×ÊÔ´ĞÅÏ¢¹¤³ÌÏµ
+ä½œè€…ï¼šç‹æˆå½¬
+æ—¥æœŸï¼š2020-05-08
+å­¦å·ï¼š045435
+ç­çº§ï¼šèµ„æºä¿¡æ¯å·¥ç¨‹ç³»
 Email:wangchb@cug.edu.cn
 ***********************************/
 use CUGer_student
 alter table Course
 alter column Credits int
 
-alter table Student		--ÔÚStudent ±íÖĞÌí¼ÓÈëÑ§Ê±¼ä×Ö¶Î
+alter table Student		--åœ¨Student è¡¨ä¸­æ·»åŠ å…¥å­¦æ—¶é—´å­—æ®µ
 add Sentrancedat DATETIME		
 
-alter table Student		--É¾³ıÈëÑ§Ê±¼ä×Ö¶Î
+alter table Student		--åˆ é™¤å…¥å­¦æ—¶é—´å­—æ®µ
 drop column Sentrancedat
 
---ÎªReports´´½¨Ö÷¼ü
---Ê×ÏÈĞŞ¸ÄSnoºÍCnoµÄ·Ç¿ÕÔ¼Êø
+--ä¸ºReportsåˆ›å»ºä¸»é”®
+--é¦–å…ˆä¿®æ”¹Snoå’ŒCnoçš„éç©ºçº¦æŸ
 alter table Reports
 alter column Sno char(5) not null
 alter table Reports
 alter column Cno char(6) not null
 
---Ìí¼ÓÖ÷¼üÔ¼Êø
+--æ·»åŠ ä¸»é”®çº¦æŸ
 alter table Reports
 add
-constraint PK_report		--´´½¨ÒÔPK_reportÎªÃûµÄÔ¼Êø
-PRIMARY KEY(Sno,Cno)		--¶ÔSno CnoÌí¼ÓÖ÷¼üÔ¼Êø
+constraint PK_report		--åˆ›å»ºä»¥PK_reportä¸ºåçš„çº¦æŸ
+PRIMARY KEY(Sno,Cno)		--å¯¹Sno Cnoæ·»åŠ ä¸»é”®çº¦æŸ
 
---É¾³ıÖ÷¼üÔ¼Êø
+--åˆ é™¤ä¸»é”®çº¦æŸ
 alter table Reports
-drop constraint PK_report		--´Ë´¦Ö±½ÓÒıÓÃÔ¼ÊøÃû³Æ¿ÉÒÔ
+drop constraint PK_report		--æ­¤å¤„ç›´æ¥å¼•ç”¨çº¦æŸåç§°å¯ä»¥

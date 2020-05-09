@@ -1,34 +1,34 @@
 /**********************************
-×÷Õß£ºÍõ³É±ò
-ÈÕÆÚ£º2020-05-08
-Ñ§ºÅ£º045435
-°à¼¶£º×ÊÔ´ĞÅÏ¢¹¤³ÌÏµ
+ä½œè€…ï¼šç‹æˆå½¬
+æ—¥æœŸï¼š2020-05-08
+å­¦å·ï¼š045435
+ç­çº§ï¼šèµ„æºä¿¡æ¯å·¥ç¨‹ç³»
 Email:wangchb@cug.edu.cn
 ***********************************/
 
 
-use CUGer_student		--Ê¹ÓÃµÄÊı¾İ¿â
-create table Student		--´´½¨Ñ§Éú±í¸ñ
+use CUGer_student		--ä½¿ç”¨çš„æ•°æ®åº“
+create table Student		--åˆ›å»ºå­¦ç”Ÿè¡¨æ ¼
 	(
-	Sno CHAR(5) PRIMARY KEY,	--Ñ§ºÅ		
-	Sname CHAR(20) NOT NULL,	--Ñ§ÉúĞÕÃû	
-	Ssex CHAR(2),		--ĞÔ±ğ
-	Sage INT,		--ÄêÁä
-	Sdept CHAR(15)		--ÔºÏµ
+	Sno CHAR(5) PRIMARY KEY,	--å­¦å·		
+	Sname CHAR(20) NOT NULL,	--å­¦ç”Ÿå§“å	
+	Ssex CHAR(2),		--æ€§åˆ«
+	Sage INT,		--å¹´é¾„
+	Sdept CHAR(15)		--é™¢ç³»
 	)
 
-create table Course		--´´½¨¿Î³Ì±í¸ñ
+create table Course		--åˆ›å»ºè¯¾ç¨‹è¡¨æ ¼
 
 	(
-	[Cno] [char](6) primary key,		--¿Î³ÌºÅÂë
-	[Cname] [char](20) NOT NULL,		--¿Î³ÌÃû	
-	[Pre_Cno] [char](12),		--¾É¿Î³ÌÃû
-	[Credits] [int]		--Ñ§·ÖÖµ
+	[Cno] [char](6) primary key,		--è¯¾ç¨‹å·ç 
+	[Cname] [char](20) NOT NULL,		--è¯¾ç¨‹å	
+	[Pre_Cno] [char](12),		--æ—§è¯¾ç¨‹å
+	[Credits] [int]		--å­¦åˆ†å€¼
 	)
 
-CREATE TABLE Reports		--´´½¨³É¼¨±í
+CREATE TABLE Reports		--åˆ›å»ºæˆç»©è¡¨
 	(
-	[Sno] char(5),		--Ñ§ºÅ
-	Cno CHAR(6),		--¿Î³ÌºÅÂë
-	Grade INT		--³É¼¨
+	[Sno] char(5),		--å­¦å·
+	Cno CHAR(6),		--è¯¾ç¨‹å·ç 
+	Grade INT		--æˆç»©
 	)

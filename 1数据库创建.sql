@@ -1,25 +1,24 @@
 /**********************************
-×÷Õß£ºÍõ³É±ò
-ÈÕÆÚ£º2020-05-08
-Ñ§ºÅ£º045435
-°à¼¶£º×ÊÔ´ĞÅÏ¢¹¤³ÌÏµ
+ä½œè€…ï¼šç‹æˆå½¬
+æ—¥æœŸï¼š2020-05-08
+å­¦å·ï¼š045435
+ç­çº§ï¼šèµ„æºä¿¡æ¯å·¥ç¨‹ç³»
 Email:wangchb@cug.edu.cn
 ***********************************/
 
-create database CUGer_student   --´´½¨Êı¾İ¿â
- on                          --Ö÷Êı¾İÎÄ¼ş
+create database CUGer_student   --åˆ›å»ºæ•°æ®åº“
+ on                          --ä¸»æ•°æ®æ–‡ä»¶
  (
-  name=CUGer_student,        --ÎÄ¼şÃû
-  filename='D:\sql\CUGer_student.mdf',		--´æ´¢Â·¾¶
-  size=10,                 --ÎÄ¼ş´óĞ¡
-  maxsize=100,		--×î´óÖµ
-  filegrowth=5		--±êÊ¾ÔöÁ¿
+  name=CUGer_student,        --æ–‡ä»¶å
+  filename='D:\sql\CUGer_student.mdf',		--å­˜å‚¨è·¯å¾„
+  size=10,                 --æ–‡ä»¶å¤§å°
+  maxsize=100,		--æœ€å¤§å€¼
+  filegrowth=5		--æ ‡ç¤ºå¢é‡
   )
-log on		--ÈÕÖ¾ÎÄ¼ş
-  (name='CUGer_student_log',		--ÎÄ¼şÃû
-  filename='D:\sql\CUGer_student.ldf',	--Â·¾¶
+log on		--æ—¥å¿—æ–‡ä»¶
+  (name='CUGer_student_log',		--æ–‡ä»¶å
+  filename='D:\sql\CUGer_student.ldf',	--è·¯å¾„
   size=8mb,
   maxsize=50mb,
   filegrowth=8mb
   )
-
